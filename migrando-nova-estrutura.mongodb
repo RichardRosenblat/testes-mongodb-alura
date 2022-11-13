@@ -1,0 +1,37 @@
+use('blog')
+// db.getCollectionNames()
+// db.artigos.drop()
+
+// db.autores.drop()
+db.autores.aggregate([
+    {
+        $unwind: "$artigos"
+    },
+    {
+        $project:{
+            _id:0,
+            slug:"$artigos.slug",
+            titulo:"$artigos.titulo",
+            conteudo:"$artigos.conteudo",
+            dataCriado:"$artigos.dataCriado",
+            "autor.nome":"$nome",
+            "autor.descricao":"$descricao",
+            "autor.email":"$email",
+            "autor.senha":"$senha",
+        }
+    },
+    {
+        $out:'artigos'
+    }
+])
+// db.autores.aggregate([
+//     {
+//         $unwind: "$artigos"
+//     }
+// ])
+
+// db.artigos.deleteOne({"_id":ObjectId('635b3d43f3f6b9f52a0e4d64')})
+//  db.artigos.find({"slug": "entendendo-a-geracao-de-chaves-com-jpa",
+//     "titulo": "Entendendo a geração de chaves com JPA"})
+
+

@@ -1,0 +1,14 @@
+use('blog')
+db.artigos.insertOne({
+    autor: {
+        nome: "Gabriel Ferreira",
+        descricao: "Desenvolvedor, instrutor e criador de conteúdp na Alura e grupo Caelum",
+        email: "gabs@caelum.com.br",
+        senha: "gabs1234"
+    },
+    slug: "faculdade-e-diploma-sao-necessarios-para-programar",
+    titulo: "Faculdade e diploma são necessários para programar?",
+    conteudo: "Será que precisamos de um diploma de uma renomada faculdade para ter uma carreira em tecnologia, em especial na programação?",
+    dataCriado: ISODate('2019-08-06')
+        
+})

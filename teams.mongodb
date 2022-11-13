@@ -1,0 +1,8 @@
+db.teams.drop()
+db.teams.insertOne({team: "Mavs", points: 30, rebounds: 8})
+db.teams.insertOne({team: "Mavs", points: 30, rebounds: 12})
+db.teams.insertOne({team: "Spurs", points: 20, rebounds: 7})
+db.teams.insertOne({team: "Spurs", points: 25, rebounds: 5})
+db.teams.insertOne({team: "Spurs", points: 25, rebounds: 9})
+db.teams.aggregate([{$group: {_id:'$team', sum_val:{$sum:"$points"}}}])
+db.teams.aggregate([{$group: {_id:'$team', sum_val:{$sum:1}}}])

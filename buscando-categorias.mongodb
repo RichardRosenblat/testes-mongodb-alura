@@ -1,0 +1,3 @@
+use('blog')
+db.artigos.createIndex({slug: 1},{unique:true})
+db.artigos.find({categorias:"Programação"}).explain("executionStats")
